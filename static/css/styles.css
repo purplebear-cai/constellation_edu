@@ -1,0 +1,71 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    font-size: 1.2em;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+}
+
+button {
+    font-size: 1.2em;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Constellation info and map styling */
+#constellation-info,
+#constellation-map {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#constellation-info {
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+#constellation-map img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
