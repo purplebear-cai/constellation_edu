@@ -14,6 +14,8 @@ def get_constellation_info():
     constellation_name = request.form.get('constellation_name', '')
     constellation_info = constellation_data.fetch_constellation_info(constellation_name)
     constellation_map = constellation_data.fetch_constellation_map(constellation_name)
+    print(constellation_info)
+    print(constellation_map)
     if constellation_info and constellation_map:
         return jsonify({
             'constellation_info': constellation_info, 

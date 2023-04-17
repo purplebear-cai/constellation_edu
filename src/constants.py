@@ -14,3 +14,5 @@ Alnilam = "Alnilam"
 Mintaka = "Mintaka"
 Saiph = "Saiph"
 Rigel = "Rigel"
+
+Orion = "Orion"

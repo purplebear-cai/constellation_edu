@@ -9,7 +9,12 @@ $(document).ready(function () {
 
             let infoHtml = '';
             for (const [key, value] of Object.entries(data.constellation_info)) {
-                infoHtml += `<h2>${key.replace(/_/g, ' ')}</h2><p>${value}</p>`;
+                if (key === "famous_star_names") {
+                    infoHtml += `<h2>Famous Stars</h2>`;
+                    infoHtml += createStarsTable(value);
+                } else {
+                    infoHtml += `<h2>${key.replace(/_/g, ' ')}</h2><p>${value}</p>`;
+                }
             }
             $('#constellation-info').html(infoHtml);
 
@@ -30,3 +35,28 @@ $(document).ready(function () {
         });
     });
 });
+
+
+function createStarsTable(mainStars) {
+    let tableHtml = `<table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Magnitude</th>
+                <th>Distance (light-years)</th>
+            </tr>
+        </thead>
+        <tbody>`;
+
+    for (const star of mainStars) {
+        tableHtml += `
+            <tr>
+                <td>${star.name}</td>
+                <td>${star.magnitude}</td>
+                <td>${star.distance}</td>
+            </tr>`;
+    }
+
+    tableHtml += `</tbody></table>`;
+    return tableHtml;
+}

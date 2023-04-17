@@ -27,8 +27,12 @@ constellation_dataset = {
     },
     "Orion": {
         "info": {
-            "background": "Orion is a prominent constellation in the night sky, representing the mythological hunter Orion. In Greek mythology, he was a giant huntsman who was placed among the stars by Zeus after his death.",
-            "famous_star_names": "Rigel (Beta Orionis), Betelgeuse (Alpha Orionis), Bellatrix (Gamma Orionis), Mintaka (Delta Orionis), Alnilam (Epsilon Orionis), Alnitak (Zeta Orionis), and Saiph (Kappa Orionis).",
+            "interest": "Orion is a prominent constellation in the night sky, representing the mythological hunter Orion. In Greek mythology, he was a giant huntsman who was placed among the stars by Zeus after his death.",
+            "famous_star_names": [
+                {"name": "Castor", "magnitude": 1.58, "distance": 51},
+                {"name": "Pollux", "magnitude": 1.14, "distance": 34},
+                {"name": "Alhena", "magnitude": 1.93, "distance": 110}
+            ],
             "visibility": "Orion is visible in the evening sky from November to February, and is best seen in January. It can be observed from latitudes +85 and -75 degrees.",
             "identification": "Find Orion by locating the three stars that form Orion's Belt, which appear in a straight line. Above the belt, you'll find the bright stars Betelgeuse (red) and Bellatrix. Below the belt, you'll find the bright stars Rigel and Saiph.",
             "pictures": [

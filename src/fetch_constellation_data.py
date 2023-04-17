@@ -14,6 +14,9 @@ from src.constants import (
     Saiph, 
     Rigel
 )
+from src.constants import (
+    Orion,
+)
 
 
 class StarData:
@@ -61,8 +64,8 @@ class StarData:
 class ConstellationData:
     def __init__(self) -> None:
         self.star_data = StarData()
-        self.constellation_main_stars = {
-            "Orion": (
+        self.constellation_main_stars_connection = {
+            Orion: (
                 (Meissa, Betelgeuse),
                 (Meissa, Bellatrix),
                 (Betelgeuse, Bellatrix), 
@@ -81,16 +84,33 @@ class ConstellationData:
                 ("pi-5", "pi-6"), 
             )
         }
+        self.constellation_main_stars = {
+            Orion: [Meissa, Betelgeuse, Bellatrix, Alnitak, Alnilam, Mintaka, Saiph, Rigel]
+        }
 
-    def fetch_constellation_info(self, constellation):
-        if constellation == "Orion":
-            return constellation_dataset["Orion"]["info"]
+    def fetch_constellation_info(self, constellation_name):
+        if constellation_name == "Orion":
+            info = constellation_dataset[constellation_name]["info"]
+            info["famous_star_names"] = self.update_main_stars(constellation_name)
+            return info
         else:
             return None
         
-    def fetch_constellation_map(self, constellation):
-        if constellation == "Orion":
-            return constellation_dataset["Orion"]["map_url"]
+    def update_main_stars(self, constellation_name):
+        stars = self.constellation_main_stars[constellation_name]
+        stars_info = []
+        for star in stars:
+            mag = self.star_data.get_magnitude_by_proper(star)
+            coordination = self.star_data.get_coordination_by_proper(star)
+            dist = self.star_data.get_dist_by_proper(star)
+            stars_info.append(
+                {"name": star, "magnitude": mag, "coordination": coordination, "distance": f"{dist} light years"}
+            )
+        return stars_info
+        
+    def fetch_constellation_map(self, constellation_name):
+        if constellation_name == "Orion":
+            return constellation_dataset[constellation_name]["map_url"]
         else:
             return None
 
@@ -100,9 +120,9 @@ class ConstellationData:
         """
         stars = set()
         collected_coordinations = []
-        if constellation not in self.constellation_main_stars:
-            raise ValueError(f"Unknown constellation name. We currently only support {self.constellation_main_stars.keys()}")
-        star_connections = self.constellation_main_stars[constellation]
+        if constellation not in self.constellation_main_stars_connection:
+            raise ValueError(f"Unknown constellation name. We currently only support {self.constellation_main_stars_connection.keys()}")
+        star_connections = self.constellation_main_stars_connection[constellation]
         for star_connection in star_connections:
             stars.add(star_connection[0])
             stars.add(star_connection[1])
