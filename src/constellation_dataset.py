@@ -1,4 +1,4 @@
-constellation_data = {
+constellation_dataset = {
     "Gemini": {
         "info": {
             "background": "Gemini is a zodiac constellation representing the mythological twins Castor and Pollux. In Greek mythology, they are the sons of Leda and Zeus, and brothers of Helen of Troy.",
@@ -36,6 +36,6 @@ constellation_data = {
                 "https://www.universetoday.com/wp-content/uploads/2008/09/Orion.jpg"
             ]
         },
-        "map_url": "https://www.constellation-guide.com/wp-content/uploads/2012/02/orion-constellation-map.jpg"
+        "map_url": "/static/videos/draw_orion.mp4"
     }
 }
